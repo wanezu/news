@@ -54,7 +54,7 @@
 			//获取用户列表
 			getUser: function () {
 				let para = {
-					name: this.filters.name
+					title: this.filters.title
 				};
 				this.loading = true;
 				//NProgress.start();

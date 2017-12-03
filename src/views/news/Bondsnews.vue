@@ -4,7 +4,10 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true" :model="filters">
 				<el-form-item>
-					<el-input v-model="filters.name" placeholder="姓名"></el-input>
+					<el-input v-model="filters.title" placeholder="标题"></el-input>
+				</el-form-item>
+				<el-form-item>
+					<el-input v-model="filters.uid" placeholder="UID"></el-input>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" v-on:click="getUsers">查询</el-button>
@@ -21,15 +24,15 @@
 			</el-table-column>
 			<el-table-column type="index" width="60">
 			</el-table-column>
-			<el-table-column prop="name" label="姓名" width="120" sortable>
+			<el-table-column prop="title" label="标题" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="sex" label="性别" width="100" :formatter="formatSex" sortable>
+			<el-table-column prop="uid" label="uid" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="age" label="年龄" width="100" sortable>
+			<el-table-column prop="pub_source" label="来源" width="100" sortable>
 			</el-table-column>
-			<el-table-column prop="birth" label="生日" width="120" sortable>
+			<el-table-column prop="rawler_time" label="抓取时间" width="120" sortable>
 			</el-table-column>
-			<el-table-column prop="addr" label="地址" min-width="180" sortable>
+			<el-table-column prop="rate" label="等级" min-width="80" sortable>
 			</el-table-column>
 			<el-table-column label="操作" width="150">
 				<template scope="scope">
@@ -158,9 +161,9 @@
 		},
 		methods: {
 			//性别显示转换
-			formatSex: function (row, column) {
-				return row.sex == 1 ? '男' : row.sex == 0 ? '女' : '未知';
-			},
+//			formatSex: function (row, column) {
+//				return row.rate == 1 ? '男' : row.sex == 0 ? '女' : '未知';
+//			},
 			handleCurrentChange(val) {
 				this.page = val;
 				this.getUsers();
